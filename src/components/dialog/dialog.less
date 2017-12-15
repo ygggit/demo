@@ -1,0 +1,37 @@
+.dialog{
+    position:fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    z-index:99;
+    .dialog-mask{
+        position:fixed;
+        top:0;
+        left: 0;
+        right: 0;
+        bottom:0;
+        background: #000;
+        opacity: 0.3;
+    }
+    .dialog-wrapper{
+        position: relative;
+        background:#fff;
+        width:600px;
+        height: auto;
+        margin:30% auto 0 auto;
+        .dialog-content{
+            width: 100%;
+            .btn-close{
+                position: absolute;
+                right:20px;
+                top:20px;
+            }
+            .detail-text{
+                padding:40px 20px;
+                font-size:16px;
+                line-height: 24px;
+            }
+        }
+    }
+}
