@@ -1,59 +1,114 @@
 <template lang="html">
-    <div class="scroll-content">
-        <div class="swiper-container">
+        <!-- <div class="swiper-container">
             <div class="swiper-wrapper">
-                <!-- <div class="swiper-slide">
-                    <img src="../../assets/swiper/pic1.jpg" alt="">
-                </div> -->
-                <div class="swiper-slide" v-for="val in urlList">
-                    <img :src="val.urlLink" alt="">
+                <div class="swiper-slide" v-for="val in imgList">
+                    <img :src="val.imgLink" alt="">
                 </div>
             </div>
-            <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>
+            div class="swiper-buttom-prev"></div>
+            <div class="swiper-buttom-next"></div>
+            <div class="swiper-scrollbar"></div>
+        </div> -->
+        <swiper :options="swiperOption" ref="mySwiper" class="carrousel">
+            <swiper-slide v-for="img in imgList" :key="img.id">
+                <a :href="img.url">
+                    <img :src="img.imgLink">
+                </a>
+            </swiper-slide>
+            <div class="swiper-pagination"  slot="pagination"></div>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
+            <div class="swiper-scrollbar"   slot="scrollbar"></div>
+         </swiper>
 
-            <!-- 如果需要导航按钮 -->
-            <!-- <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div> -->
-
-            <!-- 如果需要滚动条 -->
-            <!-- <div class="swiper-scrollbar"></div> -->
-        </div>
-    </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
+// 直接在当前页面使用
 // import Swiper from 'swiper'
 // import 'swiper/dist/css/swiper.min.css';
+// 使用vue-awesome-swiper
+import {swiper,swiperSlide} from 'vue-awesome-swiper'
 export default {
+    name:'carrousel',
     data() {
         return{
-            urlList:[
-                {urlLink:'./static/swiper/pic1.jpg'},
-                {urlLink:'./static/swiper/pic2.jpg'},
-                {urlLink:'./static/swiper/pic3.jpg'},
-                {urlLink:'./static/swiper/pic4.jpg'}
+            // 注意图片的默认路径是static
+            imgList:[
+                {
+                    imgLink:'./static/swiper/pic1.jpg',
+                    url:'https://www.baidu.com/',
+                    id:1
+                },
+                {
+                    imgLink:'./static/swiper/pic2.jpg',
+                    url:'http://starcraft.com',
+                    id:2
+                },
+                {
+                    imgLink:'./static/swiper/pic3.jpg',
+                    url:'http://warcraft.com',
+                    id:3
+                },
+                {
+                    imgLink:'./static/swiper/pic4.jpg',
+                    url:'http://hearstone.com',
+                    id:4
+                }
 
-            ]
+            ],
+            swiperOption:{
+                loop:true,
+                notNextTick:true,
+                speed:300,
+                autoplay : {
+                   delay:3000
+                },
+                paginationClickable: true,
+                pagination: {
+                  el: '.swiper-pagination',
+                  clickable :true,
+                },
+                navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                },
+                // scrollbar: {
+                //   el: '.swiper-scrollbar',
+                // },
+                observeParents:true,
+            }
+        }
+    },
+    components:{
+        swiper,
+        swiperSlide
+    },
+    computed:{
+        swiper() {
+            return this.$refs.mySwiper.swiper
+            console.info(this.$refs.mySwiper.swiper)
+
         }
     },
     mounted() {
-            console.log('mounted', this)
-            var swiper = new Swiper('.swiper-container', {
-                loop:true,
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
-                loop: true,
-                speed: 600,
-                autoplay: true
-            });
-        }
-
+            // var swiper = new Swiper('.swiper-container', {
+            //     loop:true,
+            //     pagination: '.swiper-pagination',
+            //     paginationClickable: true,
+            //     speed: 600,
+            //     autoplay: true
+            // });
+            // console.log('this is current swiper instance object',this.swiper)
+            // this.swiper.slideTo(3,1000,false)
+            console.info(this.$refs)
+    }
 
 }
 </script>
 
-<style lang="css">
+<style lang="less">
 .swiper-slide img{
     width:100%;
 }

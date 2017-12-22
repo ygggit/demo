@@ -1,7 +1,6 @@
 .container-wrapper{
     max-width: 1240px;
     margin:0 auto;
-    border:1px solid red;
     padding:0 20px;
     &:after{
         content:'';
@@ -52,6 +51,47 @@
         width:100%;
         .right-content{
             margin-left:300px;
+            .product-lists{
+                margin-top:15px;
+                .product-wrapper{
+                    width:-moz-calc(~"50% - 10px");
+                    width:-webkit-calc(~"50% - 10px");
+                    width: calc(~"50% - 10px");
+                    display: inline-block;
+                    padding:20px 0;
+                    background:#fff;
+                    margin-bottom:20px;
+                    vertical-align: top;
+                    background-repeat: no-repeat;
+                    background-position:10px center;
+                    &:nth-child(2n+1){
+                        margin-right:20px;
+                    }
+                    >div{
+                        margin-left:120px;
+                        h2{
+                            font-size:18px;
+                            color:#000;
+                            font-weight: bold;
+                            margin-bottom:15px;
+                        }
+                        p{
+                            font-size:14px;
+                        }
+                        .btn-wrapper{
+                            margin-top:20px;
+                            .button{
+                                background: #4fc08d;
+                                color: #fff;
+                                display: inline-block;
+                                padding: 10px 20px;
+                                cursor: pointer;
+                            }
+                        }
+
+                    }
+                }
+            }
         }
     }
 }

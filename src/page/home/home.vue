@@ -32,7 +32,18 @@
                   <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple"></div></el-col>
                   <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></el-col>
                 </el-row> -->
-                <my-swiper></my-swiper>
+                <carrousel></carrousel>
+                <div class="product-lists">
+                    <div class="product-wrapper"  v-for="val in product" :style="'background-image:url('+val.img+')'">
+                        <div class="">
+                            <h2>{{val.name}}</h2>
+                            <p>{{val.detail}}</p>
+                            <div class="btn-wrapper">
+                                <router-link :to="{ path:'detail/'+val.detailLink}" class="button">立即购买</router-link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -41,7 +52,7 @@
 
 <script>
 // 引入轮播组件
-import MySwiper from '../../components/swiper/swiper'
+import carrousel from '../../components/swiper/swiper.vue'
 export default {
     data(){
         return{
@@ -68,11 +79,37 @@ export default {
                         }
                     ]
                 }
+            ],
+            product:[
+                {
+                    name:"开放产品",
+                    detail:"开放产品是一款开放产品",
+                    img:"./static/home/1.png",
+                    detailLink:"detail1"
+                },
+                {
+                    name:"品牌营销",
+                    detail:"品牌营销帮助你的产品更好地找到定位",
+                    img:"./static/home/2.png",
+                    detailLink:"detail2"
+                },
+                {
+                    name:"使命必达",
+                    detail:"使命必达使命必达使命必达使命必达使命必达使命必达使命必达使命必达使命必达",
+                    img:"./static/home/3.png",
+                    detailLink:"detail3"
+                },
+                {
+                    name:"勇攀高峰",
+                    detail:"勇攀高峰勇攀高峰",
+                    img:"./static/home/4.png",
+                    detailLink:"detail4"
+                }
             ]
         }
     },
     components:{
-        MySwiper
+        carrousel
     }
 }
 </script>

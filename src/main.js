@@ -19,14 +19,20 @@ import router from './router/index.js'
 // el使用
 import ElementUi from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-// swiper
-import Swiper from 'swiper'
+// 使用vue-awesome-swiper
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.min.css';
-// 注意在使用swiper时要设置一个全局变量
-global.Swiper =Swiper
+
 Vue.config.productionTip = false
 Vue.use(ElementUi)
-// Vue.use(Swiper)
+Vue.use(VueAwesomeSwiper)
+// swiper
+// 注意此swiper不是vue版的swiper，，所以直接使用的时候会报错
+// 注意在使用swiper时要设置一个全局变量
+// import Swiper from 'swiper'
+// import 'swiper/dist/css/swiper.min.css';
+// global.Swiper =Swiper
+
 
 /* eslint-disable no-new */
 

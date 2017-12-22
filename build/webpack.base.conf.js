@@ -55,18 +55,27 @@ module.exports = {
         }
       },
       {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
+      },
+      {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-    },
+    }
     // 使用iview
     // {
     //     test:/iview\.*?js$/,
     //     loader:'babel-loader'
     // }
     ]
-  }
+}
+// resolve: {
+//   alias: {
+//     'vue$': 'vue/dist/vue.js'
+//   }
+// }
 }

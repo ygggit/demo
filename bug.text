@@ -1,0 +1,2 @@
+1.在引用swiper时遇到的问题
+在vue中要引入vue版本的swiper(vue-awesome-swiper),并且主要版本的差别(2.5.4和3.0.6)和swiper(3.x和4.x)的差别
