@@ -18,7 +18,7 @@
                       <p>适用地区：</p>
                   </div>
                   <div class="">
-
+                     <picker :city="cityList"></picker>
                   </div>
               </div>
               <div class="data-content">
@@ -45,6 +45,7 @@
 
 <script>
 import choose from "../../../components/choose/choose.vue"
+import picker from "../../../components/picker/picker.vue"
 export default {
     data() {
         return {
@@ -52,11 +53,21 @@ export default {
                 {'style':'红色版'},
                 {'style':'绿色版'},
                 {'style':'紫色版'}
+            ],
+            cityList:[
+                {'name':'北京'},
+                {'name':'上海'},
+                {'name':'广州'},
+                {'name':'天津'},
+                {'name':'江苏'},
+                {'name':'浙江'},
+                {'name':'安徽'},
             ]
         }
     },
     components:{
-        choose
+        choose,
+        picker
     }
 }
 </script>

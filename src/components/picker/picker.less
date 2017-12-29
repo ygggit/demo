@@ -1,0 +1,56 @@
+.picker-wrapper{
+    position: relative;
+    .city-select{
+        position: relative;
+        .city{
+            display: inline-block;
+            border: 1px solid #e3e3e3;
+            height: 25px;
+            line-height: 25px;
+            padding: 0 24px 0 8px;
+            border-radius: 3px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .arrow{
+            position: absolute;
+            right: 22px;
+            top: 12px;
+            display: inline-block;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid #e3e3e3;
+            width: 0;
+            height: 0;
+            margin-top: -1px;
+            margin-right: -14px;
+            vertical-align: middle;
+        }
+    }
+    .city-list{
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 25px;
+        width: 100%;
+        background: #fff;
+        border-top: 1px solid #e3e3e3;
+        border-bottom: 1px solid #e3e3e3;
+        z-index: 5;
+        ul{
+            li{
+                padding: 5px 24px 5px 8px;
+                border-left: 1px solid #e3e3e3;
+                border-right: 1px solid #e3e3e3;
+                cursor: pointer;
+                background: #fff;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                &:hover{
+                    background:#e3e3e3;
+                }
+            }
+        }
+    }
+}
