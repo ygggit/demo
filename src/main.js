@@ -35,7 +35,7 @@ Vue.use(VueAwesomeSwiper)
 
 
 /* eslint-disable no-new */
-
+window.eventBus = new Vue();
 // 挂载实例的3种写法
 // 1
 // new Vue({

@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="picker-wrapper">
      <div class="city-select" @click="TogglechangeCity">
-         <span class="city">{{}}</span>
+         <span class="city">{{city[selectedIndex].name}}</span>
          <span class="arrow"></span>
      </div>
      <div class="city-list" v-show="cityListShow">
@@ -17,7 +17,8 @@ export default {
     props:['city'],
     data(){
         return{
-            cityListShow:false
+            cityListShow:false,
+            selectedIndex:0
         }
     },
     methods:{
@@ -25,8 +26,12 @@ export default {
             this.cityListShow = !this.cityListShow
         },
         selectCity(index){
-
+            this.selectedIndex = index;
+            this.cityListShow = false;
         }
+    },
+    mounted(){
+        // eventBus.$emit()    
     }
 }
 </script>

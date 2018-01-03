@@ -10,6 +10,7 @@
     .detail-left{
         float:left;
         width:200px;
+        position: relative;
         background: #fff;
         margin-right:-200px;
         .product-icon{
@@ -44,9 +45,9 @@
         width:100%;
         .detail-right-content{
             margin-left:220px;
-            background: #fff;
             .detail{
                 >div{
+                    background: #fff;
                     h1.title{
                         font-size:20px;
                         padding:20px;
@@ -64,6 +65,59 @@
                             padding:10px 0;
                             >div{
                                 display: inline-block;
+                                &.content-title{
+                                    width: 100px;
+                                }
+                            }
+                        }
+                        .buy{
+                            p{
+                                background: #4fc08d;
+                                color: #fff;
+                                display: inline-block;
+                                padding: 10px 20px;
+                                cursor: pointer;
+                                margin:20px 0 20px 100px;
+                            }
+                        }
+                    }
+                    .user,.web-style{
+                        padding:20px;
+                        h2{
+                            font-size:20px;
+                            color:#000;
+                            font-weight: bold;
+                            margin-bottom:10px;
+                        }
+                        ul{
+                            li{
+                                padding:5px 0;
+                            }
+                        }
+                    }
+                    &:nth-child(2){
+                        margin-top:20px;
+                        .info{
+                            background: #fff;
+                        }
+                    }
+                    .product-list{
+                        padding:20px;
+                        ul{
+                            font-size:0;
+                            border:1px solid #e3e3e3;
+                            li{
+                                display: inline-block;
+                                width:20%;
+                                font-size:14px;
+                                text-align: center;
+                                border-right:1px solid #e3e3e3;
+                                border-bottom:1px solid #e3e3e3;
+                                padding:6px 0;
+                                box-sizing: border-box;
+                                &:nth-child(5n+5){
+                                    border-right:none;
+                                }
                             }
                         }
                     }
