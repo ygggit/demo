@@ -1,9 +1,9 @@
 'use strict'
 const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
-
+const utils = require('./utils')//封装了一些方法的工具
+const config = require('../config')//使用 config/index.js
+const vueLoaderConfig = require('./vue-loader.conf')//使用vue-loader.conf
+// 拼接我们的工作区路径为一个绝对路径
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -13,13 +13,16 @@ module.exports = {
     app: './src/main.js'
   },
   output: {
+      //使用config/index.js中build的assetsRoot作为输出根路径
     path: config.build.assetsRoot,
     filename: '[name].js',
+    // 正式发布环境下编译输出的发布路径
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
   resolve: {
+      // 自动补全的扩展名,能够使用户在引入模块时不带扩展
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
