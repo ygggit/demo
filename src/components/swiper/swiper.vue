@@ -34,10 +34,10 @@ export default {
     name:'carrousel',
     data() {
         return{
-            // 注意图片的默认路径是static
+            // 注意图片的默认路径是static  如果想把图片放在assets下面则使用require()
             imgList:[
                 {
-                    imgLink:'./static/swiper/pic1.jpg',
+                    imgLink:require('../../assets/swiper/pic1.jpg'),
                     url:'https://www.baidu.com/',
                     id:1
                 },

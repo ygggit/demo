@@ -1,2 +1,6 @@
 1.在引用swiper时遇到的问题
-在vue中要引入vue版本的swiper(vue-awesome-swiper),并且主要版本的差别(2.5.4和3.0.6)和swiper(3.x和4.x)的差别
+在vue中要引入vue版本的swiper(vue-awesome-swiper),并且注意版本的差别(2.5.4和3.0.6)和swiper(3.x和4.x)的差别
+如果使用的是2.5.4，，则直接使用即可，但是如果是使用3.0.6则要注意引用css
+
+2.动态的引入图片路径时，由于图片默认的路径是static,若是图片没有放在static下时找不到图片路径，此时使用require()
+
