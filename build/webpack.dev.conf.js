@@ -4,10 +4,13 @@ const webpack = require('webpack')
 /*获取config/index.js中的默认配置，config后面没有配置项会自动找index.js*/
 const config = require('../config')
 const merge = require('webpack-merge')
+const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 //https://www.npmjs.com/package/friendly-errors-webpack-plugin,可以识别某些类别的Webpack错误并进行清理，聚合和优先排序
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const WebpackDevServer = require('webpack-dev-server')
+const SpritesmithPlugin = require('webpack-spritesmith')
 
 // add hot-reload related code to entry chunks
 //将 Hol-reload 相对路径添加到 webpack.base.conf 的 对应 entry 前
@@ -18,7 +21,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 // 将我们 webpack.dev.conf.js 的配置和 webpack.base.conf.js 的配置合并
 module.exports = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
+    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
   },
   // cheap-module-eval-source-map is faster for development
   // 使用 #cheap-module-eval-source-map 模式作为开发辅助调试工具
@@ -38,6 +41,19 @@ module.exports = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true
     }),
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
+    new SpritesmithPlugin({
+        src: {
+            cwd: path.resolve(__dirname, '../src/assets/icon'),
+            glob: '*.png'
+        },
+        target: {
+            image: path.resolve(__dirname, '../static/sprite/sprite.png'),
+            css: path.resolve(__dirname, '../static/sprite/sprite.less')
+        },
+        apiOptions: {
+            cssImageRef: "../../static/sprite/sprite.png"
+        }
+    })
   ]
 })

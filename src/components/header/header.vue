@@ -11,6 +11,7 @@
                 <ul>
                     <!-- <li></li>
                     <li>退出</li> -->
+
                     <li @click="showDialog('loginShow')">登录</li>
                     <li class="deliver">|</li>
                     <li @click="showDialog('registerShow')">注册</li>
@@ -76,5 +77,5 @@ export default {
 </script>
 
 <style lang="less">
-
+// @import "../common/less/common.less";
 </style>

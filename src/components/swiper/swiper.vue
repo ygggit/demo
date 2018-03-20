@@ -87,8 +87,9 @@ export default {
     },
     computed:{
         swiper() {
-            return this.$refs.mySwiper.swiper
+            console.info(123)
             console.info(this.$refs.mySwiper.swiper)
+            return this.$refs.mySwiper.swiper
 
         }
     },
